@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/static/css/main.b15674b3.css",
-    "main.js": "/static/js/main.a177c4ad.js",
-    "static/media/about.mp4": "/static/media/about.af7109e5d88c85a8ab69.mp4",
-    "static/media/page1.png": "/static/media/page1.0da9748f859c10a27f4f.png",
-    "static/media/login-xlarg.jpg": "/static/media/login-xlarg.2dead2fd1c2f38a8f971.jpg",
-    "static/media/mahmoud.jpeg": "/static/media/mahmoud.1b45b8fa0414da5af9ac.jpeg",
-    "static/media/Logo.png": "/static/media/Logo.dd2272db04c0e811aa86.png",
-    "static/media/connection.jpeg": "/static/media/connection.aace734aa5e6f79b554e.jpeg",
-    "static/media/logo.svg": "/static/media/logo.8354d0c5131dbf2436bd15c309346711.svg",
-    "index.html": "/index.html",
-    "main.b15674b3.css.map": "/static/css/main.b15674b3.css.map",
-    "main.a177c4ad.js.map": "/static/js/main.a177c4ad.js.map"
+    "main.css": "/front-autonet/static/css/main.f1fa47c1.css",
+    "main.js": "/front-autonet/static/js/main.afa93cb3.js",
+    "static/media/about.mp4": "/front-autonet/static/media/about.af7109e5d88c85a8ab69.mp4",
+    "static/media/page1.png": "/front-autonet/static/media/page1.0da9748f859c10a27f4f.png",
+    "static/media/login-xlarg.jpg": "/front-autonet/static/media/login-xlarg.2dead2fd1c2f38a8f971.jpg",
+    "static/media/mahmoud.jpeg": "/front-autonet/static/media/mahmoud.1b45b8fa0414da5af9ac.jpeg",
+    "static/media/Logo.png": "/front-autonet/static/media/Logo.dd2272db04c0e811aa86.png",
+    "static/media/connection.jpeg": "/front-autonet/static/media/connection.aace734aa5e6f79b554e.jpeg",
+    "static/media/logo.svg": "/front-autonet/static/media/logo.8354d0c5131dbf2436bd15c309346711.svg",
+    "index.html": "/front-autonet/index.html",
+    "main.f1fa47c1.css.map": "/front-autonet/static/css/main.f1fa47c1.css.map",
+    "main.afa93cb3.js.map": "/front-autonet/static/js/main.afa93cb3.js.map"
   },
   "entrypoints": [
-    "static/css/main.b15674b3.css",
-    "static/js/main.a177c4ad.js"
+    "static/css/main.f1fa47c1.css",
+    "static/js/main.afa93cb3.js"
   ]
 }
