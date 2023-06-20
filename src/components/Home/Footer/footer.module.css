@@ -1,0 +1,35 @@
+.footer {
+    background-color: transparent;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    font-weight: 600;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.h5 {
+    color: #1768AC;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+
+@media screen and (max-width: 1200px) {
+
+    .footer {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .footer * {
+        width: 100% !important;
+    }
+
+    .footer>div:nth-of-type(2) {
+        width: 300px !important;
+        order: -1;
+    }
+}
