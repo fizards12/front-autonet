@@ -87,9 +87,9 @@ export default function NavBar({ styles, isVisible, menu, openMenu }) {
                 </li>
               ) : (
                 <li key={p.pageName} className="p-3">
-                  <a className={`dropdown-item ${styles.page}`} to={p.href}>
+                  <NavLink className={`dropdown-item ${styles.page}`} to={p.href}>
                     {p.pageName}
-                  </a>
+                  </NavLink>
                 </li>
               );
             })}
