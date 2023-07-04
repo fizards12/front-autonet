@@ -42,7 +42,7 @@ function MainHeader({styles, isVisible , logout, isLogged}) {
             >
               Congfiguration
             </NavLink>
-            {isLogged && (<NavLink
+            {!isLogged && (<NavLink
               className={`me-3 ${styles.page} navbar-dark`}
               to="/auth/login"
             >
