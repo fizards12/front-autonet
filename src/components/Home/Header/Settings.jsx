@@ -121,7 +121,7 @@ export default function Settings() {
         show={modal.show}
         onHide={() => {
           modal.handleClose();
-          navigator("../..");
+          navigator("../..", { replace: true });
         }}
         centered
       >
@@ -163,7 +163,7 @@ export default function Settings() {
             variant="secondary"
             onClick={() => {
               modal.handleClose();
-              navigator("../..");
+              navigator("../..", { replace: true });
             }}
           >
             Close
@@ -172,7 +172,7 @@ export default function Settings() {
             variant="primary"
             onClick={() => {
               modal.handleClose();
-              navigator("../..");
+              navigator("../..", { replace: true });
             }}
           >
             Save Changes
