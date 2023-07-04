@@ -8,7 +8,7 @@ import { screenContext } from "../Home";
 import { logout } from "../../../store/status/statusReducer";
 import { connect } from "react-redux";
 
-function MainHeader({styles, isVisible , logout}) {
+function MainHeader({styles, isVisible , logout, isLogged}) {
   const modal = useContext(ModalContext);
   const { currentScreenWidth, screen } = useContext(screenContext);
   const isMediumScreenOrLarger = () =>
@@ -42,12 +42,12 @@ function MainHeader({styles, isVisible , logout}) {
             >
               Congfiguration
             </NavLink>
-            <NavLink
+            {isLogged && (<NavLink
               className={`me-3 ${styles.page} navbar-dark`}
               to="/auth/login"
             >
               Login / Register
-            </NavLink>
+            </NavLink>)}
             <NavLink
               className={`me-3 ${styles.page} navbar-dark`}
               to="/auth"
@@ -65,6 +65,7 @@ function MainHeader({styles, isVisible , logout}) {
   );
 }
 const mapStateToProps = (state, ownProps) => ({
+  isLogged: state.status.isLogged
   ...ownProps,
 });
 const mapDispatchToProps = (dispatch) => ({
