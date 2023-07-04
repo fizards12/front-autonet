@@ -65,7 +65,7 @@ function MainHeader({styles, isVisible , logout, isLogged}) {
   );
 }
 const mapStateToProps = (state, ownProps) => ({
-  isLogged: state.status.isLogged
+  isLogged: state.status.isLogged,
   ...ownProps,
 });
 const mapDispatchToProps = (dispatch) => ({
