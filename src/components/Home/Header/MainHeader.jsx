@@ -39,6 +39,7 @@ function MainHeader({styles, isVisible , logout, isLogged}) {
               onClick={modal.handleShow}
             >
               Settings
+              {isMediumOrLarger}
             </NavLink>
             <NavLink
               className={`me-3 ${styles.page} navbar-dark`}
@@ -60,7 +61,7 @@ function MainHeader({styles, isVisible , logout, isLogged}) {
                 
               }}
             >
-              Logout {isMediumOrLarger}
+              Logout
             </NavLink>
           </Nav>
         </>
