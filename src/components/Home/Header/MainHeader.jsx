@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Nav from "react-bootstrap/Nav";
 import Image from "react-bootstrap/Image";
 import Logo from "./media/Logo.png";
@@ -12,18 +12,22 @@ function MainHeader({styles, isVisible , logout, isLogged}) {
   const modal = useContext(ModalContext);
   const { currentScreenWidth, screen } = useContext(screenContext);
   const isMediumScreenOrLarger = () =>
-    !screen.isMediumScreen(currentScreenWidth);
+    setIsMediumOrLarger(!screen.isMediumScreen(currentScreenWidth));
+  const [isMediumOrLarger, setIsMediumOrLarger] = useState(false);
   const navigate = useNavigate();
+  useEffect(()=>{
+    isMediumScreenOrLarger();
+  },[])
   return (
     <div
       className={
         `bg-dark d-flex justify-content-between ${styles["main-header"]} ` +
-        (isVisible() && isMediumScreenOrLarger()
+        (isVisible() && isMediumOrLarger
           ? ""
           : styles["h-0"])
       }
     >
-      {isVisible() && isMediumScreenOrLarger() && (
+      {isVisible() && isMediumOrLarger && (
         <>
           <Link className={`${styles.Logo} py-3 d-inline-block`} to="/home">
             <Image src={Logo} />
