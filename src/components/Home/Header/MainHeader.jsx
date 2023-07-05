@@ -60,7 +60,7 @@ function MainHeader({styles, isVisible , logout, isLogged}) {
                 
               }}
             >
-              Logout
+              Logout {isMediumOrLarger}
             </NavLink>
           </Nav>
         </>
