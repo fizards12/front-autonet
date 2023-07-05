@@ -45,6 +45,7 @@ function Home() {
         screen: screen
       }}
     >
+      <p>{currentScreenWidth}</p>
       <Header />
       <Body />
       <Footer />
