@@ -45,7 +45,7 @@ function Home() {
         screen: screen
       }}
     >
-      <p>{currentScreenWidth}</p>
+      <p className ="text-white">{currentScreenWidth}</p>
       <Header />
       <Body />
       <Footer />
