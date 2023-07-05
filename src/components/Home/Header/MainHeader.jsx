@@ -27,7 +27,7 @@ function MainHeader({styles, isVisible , logout, isLogged}) {
           : styles["h-0"])
       }
     >
-      {isVisible() && !isMediumOrLarger && (
+      {isVisible() && isMediumOrLarger && (
         <>
           <Link className={`${styles.Logo} py-3 d-inline-block`} to="/home">
             <Image src={Logo} />
