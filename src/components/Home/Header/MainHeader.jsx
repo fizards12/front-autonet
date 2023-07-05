@@ -12,22 +12,18 @@ function MainHeader({styles, isVisible , logout, isLogged}) {
   const modal = useContext(ModalContext);
   const { currentScreenWidth, screen } = useContext(screenContext);
   const isMediumScreenOrLarger = () =>
-    setIsMediumOrLarger(!screen.isMediumScreen(currentScreenWidth));
-  const [isMediumOrLarger, setIsMediumOrLarger] = useState(false);
+    !screen.isMediumScreen(currentScreenWidth);
   const navigate = useNavigate();
-  useEffect(()=>{
-    isMediumScreenOrLarger();
-  },[])
   return (
     <div
       className={
         `bg-dark d-flex justify-content-between ${styles["main-header"]} ` +
-        (isVisible() && isMediumOrLarger
+        (isVisible() && isMediumScreenOrLarger()
           ? ""
           : styles["h-0"])
       }
     >
-      {isVisible() && isMediumOrLarger && (
+      {isVisible() && isMediumScreenOrLarger() && (
         <>
           <Link className={`${styles.Logo} py-3 d-inline-block`} to="/home">
             <Image src={Logo} />
@@ -39,7 +35,6 @@ function MainHeader({styles, isVisible , logout, isLogged}) {
               onClick={modal.handleShow}
             >
               Settings
-              {isMediumOrLarger}
             </NavLink>
             <NavLink
               className={`me-3 ${styles.page} navbar-dark`}
