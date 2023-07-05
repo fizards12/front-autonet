@@ -45,10 +45,10 @@ function Home() {
         screen: screen
       }}
     >
-      <p className ="text-white">{currentScreenWidth}</p>
       <Header />
       <Body />
       <Footer />
+      <p className ="bg-dark text-white">{currentScreenWidth}</p>
     </screenContext.Provider>
   );
 }
