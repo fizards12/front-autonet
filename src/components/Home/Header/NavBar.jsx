@@ -18,7 +18,7 @@ function NavBar({ styles, isVisible, menu, openMenu, isLogged, logout }) {
   const { currentScreenWidth, screen } = useContext(screenContext);
 
   const pagesPathsAndNames = [
-    { href: "settings", pageName: "Settings" },
+    { href: "settings", pageName: "Profile" },
     { href: "/configuration/routers/main", pageName: "Configuration" },
   ];
 

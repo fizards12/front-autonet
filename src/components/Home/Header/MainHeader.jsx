@@ -34,7 +34,7 @@ function MainHeader({styles, isVisible , logout, isLogged}) {
               to="settings"
               onClick={modal.handleShow}
             >
-              Settings
+              Profile
             </NavLink>
             <NavLink
               className={`me-3 ${styles.page} navbar-dark`}
