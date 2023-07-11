@@ -60,7 +60,6 @@ function App() {
           <PagesRoutes />
         </Router>
       </Provider>
-      <p className="bg-dark text-white">{currentScreenWidth}</p>
     </screenContext.Provider>
   );
 }
