@@ -42,7 +42,7 @@ const Login = ({users , login}) => {
   const onSubmit = (e) => {
     e.preventDefault();
     if (isAuthenticated(user)){
-      login();
+      login(users[user.username]);
       navigate("/home");
     }
   };
@@ -93,7 +93,7 @@ const mapStateToProps = (state) => {
   };
 };
 const mapDispatchToProps = dispatch =>({
-  login: ()=> dispatch(login()),
+  login: (user)=> dispatch(login(user)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

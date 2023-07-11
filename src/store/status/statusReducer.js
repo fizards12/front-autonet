@@ -1,27 +1,35 @@
 const LOG_IN = "LOGIN";
-const LOG_OUT = "LOGOUT"
-export const login = ()=> ({
+const LOG_OUT = "LOGOUT";
+export const login = (user)=> ({
     type: LOG_IN,
-    payload: true
+    payload: {
+        isLogged : true,
+        user: user
+    }
 })
 export const logout = ()=> ({
     type: LOG_OUT,
-    payload: false
+    payload: {
+        isLogged : false,
+        user: {}
+    }
 })
 
+
 const initialState = {
-    isLogged : false
+    isLogged : false,
+    user: {}
 }
 
 const statusReducer = (state = initialState, action)=>{
     switch (action.type){
         case LOG_IN:
             return {
-                isLogged: action.payload
+                ...action.payload
             }
         case LOG_OUT:
             return {
-                isLogged: action.payload
+                ...action.payload
             }
         default:
             return state;

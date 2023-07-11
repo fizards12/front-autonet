@@ -10,17 +10,18 @@ import { AiOutlineTeam as MembersIcon } from "react-icons/ai";
 import { ModalContext } from "../../../App";
 import { Link, NavLink } from "react-router-dom";
 import { screenContext } from "../../../App";
+import { logout } from "../../../store/status/statusReducer";
+import { connect } from "react-redux";
 
-export default function NavBar({ styles, isVisible, menu, openMenu }) {
+function NavBar({ styles, isVisible, menu, openMenu, isLogged, logout }) {
   const modal = useContext(ModalContext);
-  const {currentScreenWidth , screen} = useContext(screenContext);
-  
+  const { currentScreenWidth, screen } = useContext(screenContext);
+
   const pagesPathsAndNames = [
     { href: "settings", pageName: "Settings" },
     { href: "/configuration/routers/main", pageName: "Configuration" },
-    { href: "/auth/login", pageName: "Login/Register" },
   ];
-  
+
   const menuIcon = (
     <>
       <div className={`${styles["menu-line"]} mb-1`}></div>
@@ -36,7 +37,9 @@ export default function NavBar({ styles, isVisible, menu, openMenu }) {
           <Link to={"/home"}>
             <Image
               className={`${styles.miniLogo}  ${
-                isVisible() || screen.isMediumScreen(currentScreenWidth) ? "" : "in"
+                isVisible() || screen.isMediumScreen(currentScreenWidth)
+                  ? ""
+                  : "in"
               }visible`}
               src={miniLogo}
             />
@@ -87,15 +90,39 @@ export default function NavBar({ styles, isVisible, menu, openMenu }) {
                 </li>
               ) : (
                 <li key={p.pageName} className="p-3">
-                  <NavLink className={`dropdown-item ${styles.page}`} to={p.href}>
+                  <NavLink
+                    className={`dropdown-item ${styles.page}`}
+                    to={p.href}
+                  >
                     {p.pageName}
                   </NavLink>
                 </li>
               );
             })}
+            {
+              <li className="p-3">
+                <NavLink
+                  className={`dropdown-item ${styles.page}`}
+                  to="/auth"
+                  onClick={(e) => {
+                    logout();
+                  }}
+                >
+                  Logout
+                </NavLink>
+              </li>
+            }
           </ul>
         )}
       </Container>
     </Navbar>
   );
 }
+const mapStateToProps = (state, ownProps) => ({
+  isLogged: state.status.isLogged,
+  ...ownProps,
+});
+const mapDispatchToProps = (dispatch) => ({
+  logout: () => dispatch(logout()),
+});
+export default connect(mapStateToProps, mapDispatchToProps)(NavBar);

@@ -5,16 +5,19 @@ import Form from "react-bootstrap/Form";
 import styles from "./header.module.css"
 import { ModalContext } from "../../../App";
 import { RiUserSettingsLine as SettingIcon } from "react-icons/ri";
+import { login } from "../../../store/status/statusReducer";
 import {
-  Link,
   Navigate,
   NavLink,
   Route,
   Routes,
   useNavigate,
 } from "react-router-dom";
+import { Navbar } from "react-bootstrap";
+import { connect } from "react-redux";
 
-export default function Settings() {
+
+function Settings({user}) {
   const modal = useContext(ModalContext);
   const navigator = useNavigate();
   const SettingSectionsComponents = {
@@ -23,14 +26,14 @@ export default function Settings() {
         <h2>Profile</h2>
         <div className="page-body">
           <p>
-            <span>Name:</span> <span>mahmoud sameh mohamed</span>
+            <span>Name:</span> <span>{`${user.firstname} ${user.lastname}`}</span>
           </p>
           <p>
             <span>Email:</span>{" "}
-            <a href="mailto:mahmoudsameh734@gmail.com">mahmoud sameh</a>
+            <a href={`mailto: ${user.email}`}>{`${user.firstname} ${user.lastname}`}</a>
           </p>
           <p>
-            <span>Accessibility:</span> <span>admin</span>
+            <span>Accessibility:</span> <span>{user.position}</span>
           </p>
         </div>
       </div>
@@ -131,19 +134,19 @@ export default function Settings() {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body className={`d-flex container-fluid ${styles["mdl-body"]}`}>
-          <aside className={`d-flex flex-column ${styles["side-bar"]} col-4`}>
-            <Link className="text-dark " id="profile" to="profile">
+          <Navbar className={`d-flex flex-column ${styles["side-bar"]} col-4`}>
+            <NavLink className={({isActive})=> "text-dark " + styles["nav-link"] + (isActive ? " " + styles.active : "") } id="profile" to="profile">
               profile
-            </Link>
+            </NavLink>
 
-            <Link className="text-dark " id="user" to="username">
+            <NavLink className={({isActive})=> "text-dark " + styles["nav-link"] +  (isActive ? " " + styles.active : "") } id="user" to="username">
               change username
-            </Link>
+            </NavLink>
 
-            <Link className="text-dark " id="pw" to="password">
+            <NavLink className={({isActive})=> "text-dark " + styles["nav-link"] + (isActive ? " " + styles.active : "") } id="pw" to="password">
               change password
-            </Link>
-          </aside>
+            </NavLink>
+          </Navbar>
           <Routes>
             {SettingSectionsComponents.map(
               (section, sectionIndex, keys) =>
@@ -182,3 +185,14 @@ export default function Settings() {
     </>
   );
 }
+
+const mapStateToProps = (state) => {
+  return {
+    user: state.status.user,
+  };
+};
+const mapDispatchToProps = dispatch =>({
+  login: (user)=> dispatch(login(user)),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Settings);
