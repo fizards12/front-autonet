@@ -4,7 +4,7 @@ import Image from "react-bootstrap/Image";
 import Logo from "./media/Logo.png";
 import { ModalContext } from "../../../App";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { screenContext } from "../Home";
+import { screenContext } from "../../../App";
 import { logout } from "../../../store/status/statusReducer";
 import { connect } from "react-redux";
 

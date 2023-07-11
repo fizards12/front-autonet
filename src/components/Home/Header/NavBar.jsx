@@ -9,7 +9,7 @@ import { BsBook as GuideIcon } from "react-icons/bs";
 import { AiOutlineTeam as MembersIcon } from "react-icons/ai";
 import { ModalContext } from "../../../App";
 import { Link, NavLink } from "react-router-dom";
-import { screenContext } from "../Home";
+import { screenContext } from "../../../App";
 
 export default function NavBar({ styles, isVisible, menu, openMenu }) {
   const modal = useContext(ModalContext);
